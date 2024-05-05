@@ -39,12 +39,12 @@ namespace RobotMovement
             _position.setPosition(position[0], movedPosition);
         }
 
-        public string Left()
+        public void Left()
         {
             var facing = _position.getFacing(); 
             string facingPosition = string.Empty;
 
-            switch (facing)
+            switch (facing.ToUpper())
             {
                 case "NORTH":
                     facingPosition = "WEST"; break;
@@ -56,17 +56,18 @@ namespace RobotMovement
                     facingPosition = "NORTH"; break;
 
             }
+            _position.setFacing(facingPosition);
 
-            return facingPosition;
+           
 
         }
 
-        public string Right()
+        public void Right()
         {
             var facing = _position.getFacing();
             string facingPosition = string.Empty;
 
-            switch (facing)
+            switch (facing.ToUpper())
             {
                 case "NORTH":
                     facingPosition = "EAST"; break;
@@ -78,8 +79,8 @@ namespace RobotMovement
                     facingPosition = "NORTH"; break;
 
             }
-
-            return facingPosition;
+            _position.setFacing(facingPosition);
+            
 
         }
 
